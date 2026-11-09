@@ -1,0 +1,2 @@
+2026-11-09 10:58:17,844 INFO app.services.consulta_service: https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo carregado (HTTP 200)
+2026-11-09 10:58:41,064 INFO app.services.consulta_service: https://www.sefaz.mt.gov.br/nfe/portal/consultanfe carregado (HTTP 404)

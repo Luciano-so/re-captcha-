@@ -1,0 +1,18 @@
+{
+  "portal": "Receita Federal do Brasil",
+  "url": "-",
+  "captcha": null,
+  "consulta_concluida": false,
+  "alternativas": [
+    {
+      "nome": "Mesmos web services do Portal Nacional da NF-e (Ambiente Nacional)",
+      "url_documentacao": "https://www.nfe.fazenda.gov.br/portal/webServices.aspx",
+      "requisitos": "Certificado digital ICP-Brasil.",
+      "implementado": false
+    }
+  ],
+  "automacao": "Não comprovada",
+  "justificativa": "Sem consulta própria de chave de NF-e; ver Portal Nacional da NF-e. Existe caminho oficial documentado, mas depende de certificado digital ICP-Brasil; sem ele a consulta automatizada não foi executada.",
+  "evidencias": [],
+  "erro": null
+}

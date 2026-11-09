@@ -1,0 +1,11 @@
+PORTAL: Receita Federal do Brasil
+URL: -
+CAPTCHA IDENTIFICADO: Não verificado
+TIPO: -
+CONSULTA: Pendente
+ALTERNATIVA OFICIAL: Encontrada
+AUTOMAÇÃO SEM INTERVENÇÃO: Não comprovada
+JUSTIFICATIVA: Sem consulta própria de chave de NF-e; ver Portal Nacional da NF-e. Existe caminho oficial documentado, mas depende de certificado digital ICP-Brasil; sem ele a consulta automatizada não foi executada.
+ALTERNATIVAS:
+  - Mesmos web services do Portal Nacional da NF-e (Ambiente Nacional) | Certificado digital ICP-Brasil. | https://www.nfe.fazenda.gov.br/portal/webServices.aspx
+EVIDÊNCIAS: -, logs/run.log

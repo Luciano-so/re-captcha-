@@ -1,0 +1,28 @@
+{
+  "portal": "SEFAZ-MT - Consulta NF-e",
+  "url": "https://www.sefaz.mt.gov.br/nfe/portal/consultanfe",
+  "captcha": {
+    "portal": "SEFAZ-MT - Consulta NF-e",
+    "url": "https://www.sefaz.mt.gov.br/nfe/portal/consultanfe",
+    "detected_at": "2026-11-09T14:58:41.101522Z",
+    "captcha_found": false,
+    "types": [],
+    "evidences": [],
+    "analysis": "Nenhum mecanismo CAPTCHA detectado no DOM/frames carregados."
+  },
+  "consulta_concluida": false,
+  "alternativas": [
+    {
+      "nome": "Web service NfeConsulta4 da SEFAZ-MT",
+      "url_documentacao": "https://www.nfe.fazenda.gov.br/portal/webServices.aspx",
+      "requisitos": "Certificado digital ICP-Brasil. Atende apenas NF-e autorizadas pela SEFAZ-MT (cUF 51).",
+      "implementado": false
+    }
+  ],
+  "automacao": "Não comprovada",
+  "justificativa": "Portal estadual: só responde por NF-e emitidas em MT. A chave é de SP; este portal atende ['MT'] e não retornará esta NF-e. Campo da chave não localizado. Existe caminho oficial documentado, mas depende de certificado digital ICP-Brasil; sem ele a consulta automatizada não foi executada.",
+  "evidencias": [
+    "screenshots\\sefaz-mt_20261109_105841.png"
+  ],
+  "erro": null
+}

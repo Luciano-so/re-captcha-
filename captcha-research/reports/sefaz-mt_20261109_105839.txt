@@ -1,0 +1,12 @@
+PORTAL: SEFAZ-MT - Consulta NF-e
+URL: https://www.sefaz.mt.gov.br/nfe/portal/consultanfe
+CAPTCHA IDENTIFICADO: Não
+TIPO: -
+CONSULTA: Pendente
+ALTERNATIVA OFICIAL: Encontrada
+AUTOMAÇÃO SEM INTERVENÇÃO: Não comprovada
+JUSTIFICATIVA: Portal estadual: só responde por NF-e emitidas em MT. A chave é de SP; este portal atende ['MT'] e não retornará esta NF-e. Campo da chave não localizado. Existe caminho oficial documentado, mas depende de certificado digital ICP-Brasil; sem ele a consulta automatizada não foi executada.
+ANÁLISE CAPTCHA: Nenhum mecanismo CAPTCHA detectado no DOM/frames carregados. (detectado em 2026-11-09T14:58:41.101522+00:00)
+ALTERNATIVAS:
+  - Web service NfeConsulta4 da SEFAZ-MT | Certificado digital ICP-Brasil. Atende apenas NF-e autorizadas pela SEFAZ-MT (cUF 51). | https://www.nfe.fazenda.gov.br/portal/webServices.aspx
+EVIDÊNCIAS: screenshots\sefaz-mt_20261109_105841.png, logs/run.log

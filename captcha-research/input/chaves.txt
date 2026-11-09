@@ -1,3 +1,5 @@
-# Uma chave de acesso por linha (espaços são permitidos). Linhas com # são ignoradas.
-# Também aceita CSV (usa a primeira coluna).
+# Uma nota por linha:
+#   chave                      -> nota EMITIDA por um cliente (certificado escolhido pelo CNPJ emitente)
+#   chave;cnpj_do_cliente      -> nota RECEBIDA pelo cliente (informe o CNPJ do destinatário)
+# Espaços na chave são permitidos. Linhas com # são ignoradas.
 3526 0353 5656 6300 0209 5542 0000 0189 1811 1548 5768

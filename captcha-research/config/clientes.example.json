@@ -1,0 +1,10 @@
+[
+  {
+    "nome": "Cliente Exemplo LTDA",
+    "cnpj_cpf": "12345678000199",
+    "cuf": "51",
+    "pfx": "C:/certs/cliente_exemplo.pfx",
+    "senha_env": "CERT_SENHA_12345678000199",
+    "ativo": true
+  }
+]

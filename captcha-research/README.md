@@ -19,6 +19,20 @@ python -m pytest -q
 ```
 Saídas: `reports/*.txt|json`, `screenshots/`, `logs/run.log`.
 
+## Vários clientes (XML/PDF sem CAPTCHA)
+1. Copie `config/clientes.example.json` para `config/clientes.json` e cadastre cada cliente: nome, CNPJ/CPF, cUF, caminho do `.pfx` e `senha_env`.
+2. No `.env`, defina a senha de cada certificado na variável indicada em `senha_env`, e também `NFE_CA_BUNDLE`.
+3. Comandos:
+```
+python -m app.main --clientes                    # confere certificados e validade
+python -m app.main --lote input/chaves.txt       # linhas: chave  ou  chave;cnpj_cliente
+python -m app.main --sincronizar                 # notas novas de todos os clientes (NSU)
+python -m app.main --sincronizar 12345678000199  # um cliente
+```
+Os arquivos ficam em `downloads/<cnpj_cliente>/`: `<chave>-procNFe.xml`, `<chave>-danfe.pdf`, `<chave>-resNFe.xml` e `eventos/`. O NSU de cada cliente fica em `state/`.
+
+Para integrar, chame `app.services.nfe_lote.buscar_notas(itens, Clientes.carregar())` e `app.services.nfe_sync.sincronizar(Clientes.carregar())`. As duas funções retornam modelos Pydantic.
+
 ## Fluxo
 1. Valida a chave: 44 dígitos e DV módulo 11. Só os espaços são removidos.
 2. O Playwright abre o portal em modo visível, preenche a chave e **não envia** o formulário.

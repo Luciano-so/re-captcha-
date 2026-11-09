@@ -32,16 +32,28 @@ class WsResult:
     c_stat: str | None = None
     x_motivo: str | None = None
     detalhe: str = ""
+    n_prot: str | None = None
+    dh_recbto: str | None = None
+    c_stat_nota: str | None = None
+    eventos: int = 0
+    raw: str = ""
 
 
 def parse_response(xml: str) -> WsResult:
+    """O cStat/xMotivo do retorno é o primeiro; o da nota fica dentro de <protNFe>."""
     c_stat = re.search(r"<cStat>(\d+)</cStat>", xml)
     x_motivo = re.search(r"<xMotivo>([^<]*)</xMotivo>", xml)
+    prot = re.search(r"<protNFe.*?</protNFe>", xml, re.S)
+    p = prot.group(0) if prot else ""
     return WsResult(
         ok=bool(c_stat),
         c_stat=c_stat.group(1) if c_stat else None,
         x_motivo=x_motivo.group(1) if x_motivo else None,
         detalhe="" if c_stat else "Resposta sem cStat",
+        n_prot=(re.search(r"<nProt>(\d+)</nProt>", p) or [None, None])[1],
+        dh_recbto=(re.search(r"<dhRecbto>([^<]+)</dhRecbto>", p) or [None, None])[1],
+        c_stat_nota=(re.search(r"<cStat>(\d+)</cStat>", p) or [None, None])[1],
+        eventos=len(re.findall(r"<procEventoNFe", xml)),
     )
 
 
@@ -54,19 +66,20 @@ def probe(endpoint: str, timeout: float = 15) -> str:
         return f"{type(e).__name__} (esperado sem certificado cliente): {str(e)[:120]}"
 
 
-def consultar(endpoint: str, chave: str, cert_pem: str, key_pem: str,
-              tp_amb: str = "1", timeout: float = 30) -> WsResult:
+def consultar(endpoint: str, chave: str, ssl_ctx, tp_amb: str = "1", timeout: float = 30) -> WsResult:
+    """ssl_ctx: SSLContext com o certificado do cliente (app.services.certificados)."""
     try:
         r = httpx.post(
             endpoint,
             content=build_envelope(chave, tp_amb).encode(),
             headers={"Content-Type": "application/soap+xml; charset=utf-8"},
-            cert=(cert_pem, key_pem),
+            verify=ssl_ctx,
             timeout=timeout,
         )
     except httpx.HTTPError as e:
         return WsResult(ok=False, detalhe=f"{type(e).__name__}: {str(e)[:200]}")
     res = parse_response(r.text)
+    res.raw = r.text
     if not res.ok:
-        res.detalhe = f"HTTP {r.status_code}"
+        res.detalhe = f"HTTP {r.status_code}: {r.text[:300]}"
     return res

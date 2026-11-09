@@ -1,0 +1,48 @@
+{
+  "portal": "Portal Nacional da NF-e",
+  "url": "https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo",
+  "captcha": {
+    "portal": "Portal Nacional da NF-e",
+    "url": "https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo&AspxAutoDetectCookieSupport=1",
+    "detected_at": "2026-11-09T15:07:59.957978Z",
+    "captcha_found": true,
+    "types": [
+      "Google reCAPTCHA v2",
+      "hCaptcha"
+    ],
+    "evidences": [
+      {
+        "type": "Google reCAPTCHA v2",
+        "element": "html: www.google.com/recaptcha/api.js",
+        "frame_url": null
+      },
+      {
+        "type": "hCaptcha",
+        "element": "html: hcaptcha.com/1/api.js",
+        "frame_url": null
+      }
+    ],
+    "analysis": "reCAPTCHA v2 exige interação humana; chaves de teste só valem em sites próprios. hCaptcha exige interação/validação humana; não há modo de teste em produção. Bypass não é implementado; buscar alternativa oficial."
+  },
+  "consulta_concluida": false,
+  "alternativas": [
+    {
+      "nome": "Web service NFeConsultaProtocolo4 (SEFAZ autorizadora da UF da chave)",
+      "url_documentacao": "https://www.nfe.fazenda.gov.br/portal/webServices.aspx",
+      "requisitos": "Certificado digital ICP-Brasil (e-CNPJ/e-CPF A1 ou A3) em TLS mútuo. Sem CAPTCHA. Retorna situação/protocolo da NF-e.",
+      "implementado": false
+    },
+    {
+      "nome": "Web service NFeDistribuicaoDFe (Ambiente Nacional) - consChNFe",
+      "url_documentacao": "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=ndIjl+iEFdE=",
+      "requisitos": "Certificado do CNPJ/CPF que é ator da NF-e (emitente, destinatário, transportador ou autorizado no XML). Retorna o XML/resumo.",
+      "implementado": false
+    }
+  ],
+  "automacao": "Não comprovada",
+  "justificativa": "Consulta pública via navegador exige resolução humana do CAPTCHA. Campo da chave: #ctl00_ContentPlaceHolder1_txtChaveAcessoResumo Web service oficial para SP: https://nfe.fazenda.sp.gov.br/ws/nfeconsultaprotocolo4.asmx -> ConnectError (esperado sem certificado cliente): [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082) NFE_CERT_PEM/NFE_KEY_PEM não configurados: consulta via web service não executada. Download XML/PDF não executado: configure NFE_CERT_PEM, NFE_KEY_PEM, NFE_CNPJ_CPF e NFE_CUF_AUTOR no .env. Existe caminho oficial documentado, mas depende de certificado digital ICP-Brasil; sem ele a consulta automatizada não foi executada.",
+  "evidencias": [
+    "screenshots\\nfe_20261109_110759.png"
+  ],
+  "erro": null
+}

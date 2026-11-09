@@ -63,7 +63,7 @@ def test_detect_captcha_proprio():
 
 def test_distribuicao_envelope_e_doczip():
     import base64, gzip
-    from app.services.nfe_distribuicao import build_envelope as be, parse_response as pr
+    from app.services.nfe_distribuicao import envelope_chave as be, parse_response as pr
     env = be("1" * 44, "12345678000199", "51")
     assert "<CNPJ>12345678000199</CNPJ>" in env and "<cUFAutor>51</cUFAutor>" in env
     b64 = base64.b64encode(gzip.compress(b"<nfeProc>ok</nfeProc>")).decode()

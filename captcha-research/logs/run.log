@@ -1,2 +1,12 @@
 2026-11-09 10:58:17,844 INFO app.services.consulta_service: https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo carregado (HTTP 200)
 2026-11-09 10:58:41,064 INFO app.services.consulta_service: https://www.sefaz.mt.gov.br/nfe/portal/consultanfe carregado (HTTP 404)
+2026-11-09 11:07:59,904 INFO app.services.consulta_service: https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=resumo carregado (HTTP 200)
+2026-11-09 11:21:42,479 INFO httpx: HTTP Request: POST https://www1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx "HTTP/1.1 200 OK"
+2026-11-09 11:21:42,480 INFO app.services.nfe_sync: Sync AGRICOLA CACHIMBO VALE DO OURO: 0 docs (0 XML) NSU=000000000109177 cStat=656 Rejeicao: Consumo Indevido (Deve ser utilizado o ultNSU nas solicitacoes subsequentes. Tente apos 1 hora)
+2026-11-09 13:36:10,651 INFO httpx: HTTP Request: POST https://www1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx "HTTP/1.1 200 OK"
+2026-11-09 13:36:10,653 INFO app.services.nfe_lote: 51261107478673000109550010002835801424267551 [AGRICOLA CACHIMBO VALE DO OURO] -> nao_encontrada Rejeicao: NF-e indisponivel para o emitente
+2026-11-09 13:38:11,204 INFO httpx: HTTP Request: POST https://www1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx "HTTP/1.1 200 OK"
+2026-11-09 13:38:11,206 INFO app.services.nfe_sync: Sync AGRICOLA CACHIMBO VALE DO OURO: 0 docs (0 XML) NSU=000000000109184 cStat=656 Rejeicao: Consumo Indevido (Deve ser utilizado o ultNSU nas solicitacoes subsequentes. Tente apos 1 hora)
+2026-11-09 13:41:38,371 INFO httpx: HTTP Request: POST https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeConsulta4 "HTTP/1.1 200 OK"
+2026-11-09 13:42:34,553 INFO httpx: HTTP Request: POST https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeConsulta4 "HTTP/1.1 200 OK"
+2026-11-09 13:42:34,554 INFO app.services.nfe_lote: 51261107478673000109550010002835801424267551 [AGRICOLA CACHIMBO VALE DO OURO] -> situacao_consultada situação: cStat 100 Autorizado o uso da NF-e | XML não distribuído ao emitente: obter no sistema emissor.

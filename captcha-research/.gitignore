@@ -1,0 +1,12 @@
+.env
+config/clientes.json
+*.pfx
+*.p12
+*.pem
+downloads/
+state/
+logs/
+reports/
+screenshots/
+__pycache__/
+.pytest_cache/

@@ -3,6 +3,8 @@ httpx>=0.27
 python-dotenv>=1.0
 pydantic>=2.7
 pytest>=8.0
+cryptography>=42  # leitura do certificado A1 (.pfx)
 brazilfiscalreport>=1.0  # DANFE (PDF) a partir do XML
 # Opcional (navegação assistida por IA, flag --ai):
 # browser-use>=0.5
+openpyxl>=3.1  # planilhas .xlsx

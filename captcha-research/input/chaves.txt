@@ -1,0 +1,3 @@
+# Uma chave de acesso por linha (espaços são permitidos). Linhas com # são ignoradas.
+# Também aceita CSV (usa a primeira coluna).
+3526 0353 5656 6300 0209 5542 0000 0189 1811 1548 5768
